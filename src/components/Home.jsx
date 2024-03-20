@@ -8,22 +8,14 @@ import Footer from './Footer';
 
 const Navbar = lazy(() => import('./Navbar'));
 
-const Home = () => {
+const Home = ({homeNotes , setHomeNotes}) => {
   // const history = useHistory();
   const navigate = useNavigate();
-  const [homeNotes, setHomeNotes] = useState("");
-  const [classNotes, setClassNotes] = useState([]);
-  const [OfficeNotes, setOfficeNotes] = useState([]);
+
 
   const handlerHomeNotes = () => {
-    navigate('/homeNotes', {
-      state: {
-        homeNotes: homeNotes
-      }
-    });
-    
-    
-
+   localStorage.setItem('homeNotes', JSON.stringify(homeNotes));
+    navigate('/homeNotes')
   }
 
   return (
