@@ -12,7 +12,7 @@ const HomeNotes = ({ homeNotes }) => {
   return (
     <div className='bg-gray-300 py-8 min-h-screen'>
       <div className='container mx-auto px-4'>
-        <h1 className="text-3xl font-bold mb-8 text-center">Home Notes</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center">Home Notes11</h1>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {notes.length > 0 ? (
             notes.map((note, index) => <Card key={index} data={note} />)
