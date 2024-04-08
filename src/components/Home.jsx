@@ -11,11 +11,21 @@ const Navbar = lazy(() => import('./Navbar'));
 const Home = ({homeNotes , setHomeNotes}) => {
   // const history = useHistory();
   const navigate = useNavigate();
-
+  const [notesData , setNotesData] = useState("");
 
   const handlerHomeNotes = () => {
-   localStorage.setItem('homeNotes', JSON.stringify(homeNotes));
-    navigate('/homeNotes')
+  // setNotesData(homeNotes);
+  // console.log(notesData);
+  //  res.push(notesData);
+  //  localStorage.setItem('Data', JSON.stringify(res));
+  if (homeNotes) {
+    setNotesData(homeNotes);
+    const newData = JSON.parse(localStorage.getItem('Data')) ? JSON.parse(localStorage.getItem('Data')) : [];
+    newData.push(homeNotes);
+    localStorage.setItem('Data', JSON.stringify(newData));
+    navigate('/homeNotes');
+  }
+    
   }
 
   return (

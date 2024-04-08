@@ -1,10 +1,28 @@
 import React from 'react';
 
-const Card = ({ item }) => {
+const Card = ({ data , key }) => {
+
+
+
+  const handleEditData = () => {
+    console.log(data);
+    localStorage.removeItem(data);
+  }
+  
   return (
-    <div className='flex flex-wrap mx-2 my-2 border border-gray-300 rounded p-4 overflow-hidden bg-white text-gray-800 text-base font-medium'>
-      <p className="text-sm overflow-y-auto max-h-full break-all">Item is this {item}</p>
+    <div className='rounded-lg overflow-hidden shadow-md bg-white border border-gray-200'>
+    <div className='p-4'>
+      <p className="text-gray-800 text-lg">{data}</p>
     </div>
+    <div className="flex justify-end px-4 pb-4">
+      <button onClick={handleEditData} className="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        Edit
+      </button>
+      <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+        Delete
+      </button>
+    </div>
+  </div>
   );
 };
 
